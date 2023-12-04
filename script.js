@@ -12,6 +12,14 @@ editor.value = `
 </body>
 </html>
 `;
+document.addEventListener('keyup', detectTabKey);
+
+function detectTabKey(e) {
+  if (e.keyCode == 9) {
+    alert();
+  }
+}
+
 function run() {
     document.querySelector('.output').innerHTML = editor.value;
 }
