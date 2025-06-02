@@ -12,12 +12,19 @@ editor.value = `
 </body>
 </html>
 `;
-var file = document.getElementById("import").files[0];
-var reader = new FileReader();
-reader.onload = function (e) {
-    editor.value = e.target.result;
-};
-reader.readAsText(file);
+var control = document.getElementById("import"); 
+    control.addEventListener("change", function(event){ 
+        var reader = new FileReader();      
+        reader.onload = function(event){
+            var contents = event.target.result;     
+            document.getElementById('tab').value = contents;            
+        };      
+        reader.onerror = function(event){
+            console.error("File could not be read! Code " + event.target.error.code);
+        };      
+        console.log("Filename: " + control.files[0].name);
+        reader.readAsText(control.files[0]);        
+    }, false);
 
 var inputField = document.getElementById('tab');
 
