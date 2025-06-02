@@ -12,7 +12,7 @@ editor.value = `
 </body>
 </html>
 `;
-document.addEventListener('keyup', detectTabKey);
+editor.addEventListener('keyup', detectTabKey);
 
 function detectTabKey(e) {
   if (e.keyCode == 9) {
