@@ -1,4 +1,5 @@
 const editor = document.querySelector('.editor');
+const tab = document.querySelector("#tab");
 editor.value = `
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +13,7 @@ editor.value = `
 </body>
 </html>
 `;
-editor.addEventListener('keyup', detectTabKey);
+tab.addEventListener('keyup', detectTabKey);
 
 function detectTabKey(e) {
   if (e.keyCode == 9) {
