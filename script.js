@@ -1,5 +1,4 @@
 const editor = document.querySelector('.editor');
-const tab = document.querySelector("#tab");
 editor.value = `
 <!DOCTYPE html>
 <html lang="en">
@@ -13,14 +12,30 @@ editor.value = `
 </body>
 </html>
 `;
-tab.addEventListener('keyup', detectTabKey);
 
-function detectTabKey(e) {
-  if (e.keyCode == 9) {
-    alert();
-  }
-}
+var inputField = document.getElementById('tab');
 
+  inputField.onkeydown = function(e) {
+
+   if (e.keyCode === 9) {
+
+       this.setRangeText(
+
+               '\t',
+
+               this.selectionStart,
+
+               this.selectionStart,
+
+               'end'
+
+           )
+
+       return false;
+
+   }
+
+};
 function run() {
     document.querySelector('.output').innerHTML = editor.value;
 }
