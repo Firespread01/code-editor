@@ -12,6 +12,12 @@ editor.value = `
 </body>
 </html>
 `;
+var file = document.getElementById("import").files[0];
+var reader = new FileReader();
+reader.onload = function (e) {
+    editor.value = e.target.result;
+};
+reader.readAsText(file);
 
 var inputField = document.getElementById('tab');
 
